@@ -1,0 +1,107 @@
+#%RAML 1.0
+title: DeliveryAppGroupB
+uses:
+  lib: library.raml
+/Amdin:
+  post:
+    body:      
+      application/json:
+        type: lib.Admin []
+        example: !include EXAMPLES/ADMINexample.raml
+  type:
+    lib.resource:
+      exampleReference1:
+        {
+          msg: "Account successfully created"
+        }
+    is:
+      - lib.Errors            
+  get:
+    responses:
+      201:
+        body:
+          application/json:
+            type: lib.Admin
+            example: !include EXAMPLES/ADMINGET_PUT_dELETE_example.raml
+      404:
+        body:
+          application/json:
+            example:
+              {
+                msg: "Not Found"
+              }
+  put:
+    body:
+      application/json:
+        type: lib.Admin
+        example: !include EXAMPLES/ADMINGET_PUT_dELETE_example.raml
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+                msg: "succesfully Edited"
+              }
+    is:
+      - lib.Errors 
+  delete:
+    body:
+      application/json:
+        type: lib.Admin         
+        example: !include EXAMPLES/ADMINGET_PUT_dELETE_example.raml  
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                msg: "Successfully deleted"
+              }
+    is:
+      lib.Errors
+/Customer:
+  post:
+    body:
+      application/json:
+        type: lib.Customer 
+        example: !include EXAMPLES/Customerexample.raml
+  type:
+    lib.resource:
+      exampleReference1:
+        {
+          "UserId": "001"
+        }
+  is:
+    - lib.Errors
+  get:
+    queryParameters: 
+      username: 
+        type: string 
+      password:
+        type: string
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                msg: "Succefully Logged in "
+              }
+    is:
+      - lib.Errors
+/Delivery Man:
+  get:
+    description: Delivery Man getting cutstomer Info
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include EXAMPLES/DeliveryManexample.raml           
+  is:
+    - lib.Errors
+        
+
+
+    
+

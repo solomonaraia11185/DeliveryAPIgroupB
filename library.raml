@@ -1,0 +1,15 @@
+#%RAML 1.0 Library
+securitySchemes:
+  Basic: !include Security/Basic.raml
+  Oath: !include Security/Oath.raml
+usage: Collection of API fragment 
+types:
+  Admin: !include Data Type/AdmindataType.raml
+  Customer: !include Data Type/CustomerdataType.raml
+  DeliveryMan: !include Data Type/DeliveryMandataType.raml
+traits:
+  Errors: !include Traits/ErrorResponces.raml 
+
+resourceTypes:
+  resource: !include Resources/PostresourceType.raml
+

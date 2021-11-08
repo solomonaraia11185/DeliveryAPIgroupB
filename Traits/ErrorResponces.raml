@@ -1,0 +1,23 @@
+#%RAML 1.0 Trait
+responses:  
+      404:
+        body:
+          application/json:
+            example:
+              {
+                msg: "Not Found"
+              }
+      400:
+        body:
+          application/json:
+            example:
+              {
+                msg: "Bad request"
+              }
+      500:
+        body:
+          application/json:
+            example:
+              {
+                msg: "server error"
+              }

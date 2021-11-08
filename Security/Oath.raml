@@ -1,0 +1,18 @@
+#%RAML 1.0 SecurityScheme
+type: OOAuth 2.0
+description: Token Authorization required 
+displayName: "Mr. RAML GroupB"
+describedBy:
+  headers:
+    authorization:
+      description: Admin needs access authorization      
+      type: string 
+  responses:
+    401:
+      description: Unauthorized user 
+    403:
+      description: Forbidden access
+
+
+
+
